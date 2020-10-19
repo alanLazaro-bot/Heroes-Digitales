@@ -5,23 +5,41 @@ let heroesController ={
 main: function (req,res){
 
     
-    res.send(heroesLista);
+    res.render('heroes', {heroesLista});
 },
 
 profesion: function(req,res){
- 
 
-   let resultado= heroesLista.filter(function (heroe) {
+    let resultado = heroesLista.find(function(heroe) {
+       
         return heroe.id == req.params.id;
 
     })
-    res.render('heroesProfesion', {resultado})
+
+    if(resultado){
+        res.render('heroesProfesion', {resultado})
+    }
+    else {
+        res.send("No tenemos en nuestra base ningún héroe ni heroína con ese id")
+    }
+    
+
  
+/*for (let heroe of heroesLista) {
+    if (heroe.id == req.params.id){
+
+    return res.render('heroesProfesion', {heroe})
+    }
+    
+}
+*/
+
+
 
 },
 resenia: function (req,res){
     
-    res.render('heroes');
+    res.render('heroesResenia');
 }
 }
 module.exports = heroesController;

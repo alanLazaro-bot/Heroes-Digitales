@@ -7,11 +7,19 @@
 </head>
 <body>
 
-    <h1>Listado Héroes</h1>
+   
 
-    <% for(let i=0; i<heroesLista.length;i++){ %> 
-    <p><%heroesLista.i%> </p>
-    <% } %> 
+    <% heroes.forEach(function(heroe) { %>
+    
+    <li>
+       <%= heroe.nombre %>,
+        <%= heroe.profesion %>
+        
+
+    </li>
+     
+    
+    <% }); %> 
     
 </body>
 </html>
